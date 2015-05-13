@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
 
 	private TextView resultView;
+	private static final int FOR_COUNT = 50;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,29 +24,70 @@ public class MainActivity extends ActionBarActivity {
 	protected void onResume() {
 		super.onResume();
 
-		String result = getIfResult(5, 10);
+		String result = String.format("::::%d::::\n\n", FOR_COUNT + 1);
 
-		result = result + "\n\n::::::::::::::::\n\n";
+		result += getForResultBinary();
+		result += "\n::::::::::\n";
 
-		result = result + getIfResult(100, 10);
+		result += getForResultOctal();
+		result += "\n::::::::::\n";
 
-		result = result + "\n\n::::::::::::::::\n\n";
+		result += getForResultDecimal();
+		result += "\n::::::::::\n";
 
-		result = result + getIfResult(500, 500);
+		result += getForResultHex();
 
 		resultView.setText(result);
 	}
 
-	private String getIfResult(int a, int b) {
+	private String getForResultBinary() {
 		String retVal = null;
+		int number = 0b1;
 
-		if (a > b) {
-			retVal = String.format("a = %d\nb = %d\n\na > b", a, b);
-		} else if (a < b) {
-			retVal = String.format("a = %d\nb = %d\n\na < b", a, b);
-		} else {
-			retVal = String.format("a = %d\nb = %d\n\na == b", a, b);
+		for (int i = 0; i < FOR_COUNT; ++i) {
+			number++;
 		}
+
+		retVal = "2진수 - 0b" + Integer.toBinaryString(number);
+
+		return retVal;
+	}
+
+	private String getForResultOctal() {
+		String retVal = null;
+		int number = 01;
+
+		for (int i = 0; i < FOR_COUNT; ++i) {
+			number++;
+		}
+
+		retVal = "8진수 - 0" + Integer.toOctalString(number);
+
+		return retVal;
+	}
+
+	private String getForResultDecimal() {
+		String retVal = null;
+		int number = 1;
+
+		for (int i = 0; i < FOR_COUNT; ++i) {
+			number++;
+		}
+
+		retVal = "10진수 - " + Integer.toString(number);
+
+		return retVal;
+	}
+
+	private String getForResultHex() {
+		String retVal = null;
+		int number = 0x1;
+
+		for (int i = 0; i < FOR_COUNT; ++i) {
+			number++;
+		}
+
+		retVal = "16진수 - 0x" + Integer.toHexString(number);
 
 		return retVal;
 	}
