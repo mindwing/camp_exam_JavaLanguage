@@ -23,19 +23,29 @@ public class MainActivity extends ActionBarActivity {
 	protected void onResume() {
 		super.onResume();
 
-		String result = getCalcResult();
+		String result = getIfResult(5, 10);
+
+		result = result + "\n\n::::::::::::::::\n\n";
+
+		result = result + getIfResult(100, 10);
+
+		result = result + "\n\n::::::::::::::::\n\n";
+
+		result = result + getIfResult(500, 500);
+
 		resultView.setText(result);
 	}
 
-	private String getCalcResult() {
+	private String getIfResult(int a, int b) {
 		String retVal = null;
 
-		int a = 5;
-		int b = 10;
-
-		int y = a * 3 + b;
-
-		retVal = "a = 5\nb = 10\n\na * 3 + b = " + y;
+		if (a > b) {
+			retVal = String.format("a = %d\nb = %d\n\na > b", a, b);
+		} else if (a < b) {
+			retVal = String.format("a = %d\nb = %d\n\na < b", a, b);
+		} else {
+			retVal = String.format("a = %d\nb = %d\n\na == b", a, b);
+		}
 
 		return retVal;
 	}
