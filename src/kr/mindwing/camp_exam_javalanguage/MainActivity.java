@@ -28,16 +28,21 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private String getCalcResult() {
-		String retVal = null;
+		String resultValue = null;
 
 		int a = 5;
 		int b = 10;
 
 		int y = a * 3 + b;
 
-		retVal = "a = 5\nb = 10\n\na * 3 + b = " + y;
+		resultValue = "a = 5";
+		resultValue = resultValue + "\n";
+		resultValue = resultValue + "b = 10";
+		resultValue = resultValue + "\n\n";
+		resultValue = resultValue + "a * 3 + b = ";
+		resultValue = resultValue + y;
 
-		return retVal;
+		return resultValue;
 	}
 
 	@Override
