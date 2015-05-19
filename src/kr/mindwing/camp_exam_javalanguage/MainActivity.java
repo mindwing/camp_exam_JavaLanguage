@@ -24,18 +24,18 @@ public class MainActivity extends ActionBarActivity {
 	protected void onResume() {
 		super.onResume();
 
-		String result = String.format("::::%d::::\n\n", FOR_COUNT + 1);
+		String result = "::::" + (FOR_COUNT + 1) + "::::\n\n";
 
-		result += getForResultBinary();
-		result += "\n::::::::::\n";
+		result = result + getForResultBinary();
+		result = result + "\n::::::::::\n";
 
-		result += getForResultOctal();
-		result += "\n::::::::::\n";
+		result = result + getForResultOctal();
+		result = result + "\n::::::::::\n";
 
-		result += getForResultDecimal();
-		result += "\n::::::::::\n";
+		result = result + getForResultDecimal();
+		result = result + "\n::::::::::\n";
 
-		result += getForResultHex();
+		result = result + getForResultHex();
 
 		resultView.setText(result);
 	}
