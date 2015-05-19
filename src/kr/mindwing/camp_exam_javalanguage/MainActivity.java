@@ -40,11 +40,11 @@ public class MainActivity extends ActionBarActivity {
 		String retVal = null;
 
 		if (a > b) {
-			retVal = String.format("a = %d\nb = %d\n\na > b", a, b);
+			retVal = "a = " + a + "\n" + "b = " + b + "\n\n" + "a > b";
 		} else if (a < b) {
-			retVal = String.format("a = %d\nb = %d\n\na < b", a, b);
+			retVal = "a = " + a + "\n" + "b = " + b + "\n\n" + "a < b";
 		} else {
-			retVal = String.format("a = %d\nb = %d\n\na == b", a, b);
+			retVal = "a = " + a + "\n" + "b = " + b + "\n\n" + "a == b";
 		}
 
 		return retVal;
