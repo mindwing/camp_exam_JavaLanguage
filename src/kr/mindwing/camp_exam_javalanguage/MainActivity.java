@@ -2,6 +2,7 @@ package kr.mindwing.camp_exam_javalanguage;
 
 import java.util.Random;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
 
 	private TextView resultView;
-	private static final int FOR_COUNT = 50;
 	private Random random = new Random();
 
 	@Override
@@ -27,6 +27,11 @@ public class MainActivity extends ActionBarActivity {
 	protected void onResume() {
 		super.onResume();
 
+		setFoodString();
+		setBGColor();
+	}
+
+	private void setFoodString() {
 		String strFood = null;
 		int intFood = random.nextInt() % 2;
 
@@ -45,6 +50,28 @@ public class MainActivity extends ActionBarActivity {
 		}
 
 		resultView.setText(strFood);
+	}
+
+	private void setBGColor() {
+		int intColor = random.nextInt() % 3;
+
+		switch (intColor) {
+		case 0:
+			resultView.setBackgroundColor(Color.RED);
+			break;
+
+		case 1:
+			resultView.setBackgroundColor(Color.YELLOW);
+			break;
+
+		case -1:
+			resultView.setBackgroundColor(Color.BLUE);
+			break;
+
+		default:
+			resultView.setBackgroundColor(Color.GRAY);
+			break;
+		}
 	}
 
 	@Override
