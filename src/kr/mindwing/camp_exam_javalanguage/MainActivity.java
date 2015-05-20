@@ -1,5 +1,7 @@
 package kr.mindwing.camp_exam_javalanguage;
 
+import java.util.Random;
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -10,6 +12,7 @@ public class MainActivity extends ActionBarActivity {
 
 	private TextView resultView;
 	private static final int FOR_COUNT = 50;
+	private Random random = new Random();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,76 +27,24 @@ public class MainActivity extends ActionBarActivity {
 	protected void onResume() {
 		super.onResume();
 
-		String result = "::::" + (FOR_COUNT + 1) + "::::\n\n";
+		String strFood = null;
+		int intFood = random.nextInt() % 2;
 
-		result = result + getForResultBinary();
-		result = result + "\n::::::::::\n";
+		switch (intFood) {
+		case 0:
+			strFood = intFood + ": 배달의 요기요";
+			break;
 
-		result = result + getForResultOctal();
-		result = result + "\n::::::::::\n";
+		case 1:
+			strFood = intFood + ": 요기요민족";
+			break;
 
-		result = result + getForResultDecimal();
-		result = result + "\n::::::::::\n";
-
-		result = result + getForResultHex();
-
-		resultView.setText(result);
-	}
-
-	private String getForResultBinary() {
-		String retVal = null;
-		int number = 0b1;
-		int i = 0;
-
-		while (i++ < FOR_COUNT) {
-			number++;
+		default:
+			strFood = intFood + ": 라면물 끓이기";
+			break;
 		}
 
-		retVal = "2진수 - 0b" + Integer.toBinaryString(number);
-
-		return retVal;
-	}
-
-	private String getForResultOctal() {
-		String retVal = null;
-		int number = 01;
-		int i = 0;
-
-		while (i++ < FOR_COUNT) {
-			number++;
-		}
-
-		retVal = "8진수 - 0" + Integer.toOctalString(number);
-
-		return retVal;
-	}
-
-	private String getForResultDecimal() {
-		String retVal = null;
-		int number = 1;
-		int i = 0;
-
-		while (i++ < FOR_COUNT) {
-			number++;
-		}
-
-		retVal = "10진수 - " + Integer.toString(number);
-
-		return retVal;
-	}
-
-	private String getForResultHex() {
-		String retVal = null;
-		int number = 0x1;
-		int i = 0;
-
-		while (i++ < FOR_COUNT) {
-			number++;
-		}
-
-		retVal = "16진수 - 0x" + Integer.toHexString(number);
-
-		return retVal;
+		resultView.setText(strFood);
 	}
 
 	@Override
