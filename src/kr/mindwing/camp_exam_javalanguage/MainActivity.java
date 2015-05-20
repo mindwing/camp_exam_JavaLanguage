@@ -43,8 +43,9 @@ public class MainActivity extends ActionBarActivity {
 	private String getForResultBinary() {
 		String retVal = null;
 		int number = 0b1;
+		int i = 0;
 
-		for (int i = 0; i < FOR_COUNT; ++i) {
+		while (i++ < FOR_COUNT) {
 			number++;
 		}
 
@@ -56,8 +57,9 @@ public class MainActivity extends ActionBarActivity {
 	private String getForResultOctal() {
 		String retVal = null;
 		int number = 01;
+		int i = 0;
 
-		for (int i = 0; i < FOR_COUNT; ++i) {
+		while (i++ < FOR_COUNT) {
 			number++;
 		}
 
@@ -69,8 +71,9 @@ public class MainActivity extends ActionBarActivity {
 	private String getForResultDecimal() {
 		String retVal = null;
 		int number = 1;
+		int i = 0;
 
-		for (int i = 0; i < FOR_COUNT; ++i) {
+		while (i++ < FOR_COUNT) {
 			number++;
 		}
 
@@ -82,8 +85,9 @@ public class MainActivity extends ActionBarActivity {
 	private String getForResultHex() {
 		String retVal = null;
 		int number = 0x1;
+		int i = 0;
 
-		for (int i = 0; i < FOR_COUNT; ++i) {
+		while (i++ < FOR_COUNT) {
 			number++;
 		}
 
